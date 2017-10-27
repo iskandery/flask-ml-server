@@ -17,6 +17,12 @@ model_columns = None
 model = None
 
 
+@app.route('/test_endpoint', methods=['GET'])
+def test_function():
+    print("I made my own endpoint!")
+    return "I'm hungry"
+
+
 @app.route('/predict', methods=['POST'])
 def predict():
     if model:
@@ -28,7 +34,7 @@ def predict():
             return jsonify({'error': str(e), 'trace': traceback.format_exc()})
     else:
         print('You need to train a model before you can make predictions.')
-        return('error: no model')
+        return 'error: no model'
 
 
 @app.route('/train', methods=['GET'])

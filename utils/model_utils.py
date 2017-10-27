@@ -41,6 +41,10 @@ def train(df):
 
 
 def predict(input_df, model, columns):
+    print("Input data frame is...\n")
+    print("-----------")
+    print(input_df)
+    print("-----------")
     query = pd.get_dummies(input_df)
 
     # Give all missing values a value of 0
